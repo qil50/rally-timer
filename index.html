@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>حساب توقيت الحشود المتزامنة</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>1096 🐪</h1>
+
+    <div id="utc-clock" class="utc-clock">00:00:00 UTC</div>
+
+    <!-- نموذج الإدخال -->
+    <div class="form-container">
+      <div class="form-row">
+        <div class="form-group">
+          <label>اسم اللاعب</label>
+          <input id="player-name" type="text" placeholder="أدخل اسم اللاعب" />
+        </div>
+
+        <div class="form-group">
+          <label>مدة المسيرة (ثانية)</label>
+          <input id="march-time" type="number" min="1" placeholder="أدخل عدد الثواني" />
+        </div>
+
+        <div class="form-group" style="flex:.5;display:flex;align-items:flex-end">
+          <button id="add-player">إضافة لاعب</button>
+        </div>
+      </div>
+
+      <button id="calc-wait">حساب وقت الانتظار</button>
+      <button id="start-countdown">بدء العد التنازلي الآن</button>
+      <button id="reset-btn">إعادة تعيين</button>
+    </div>
+
+    <div id="prep-countdown" class="prep-countdown">
+      جاري التحضير: <span id="prep-time">5</span>
+    </div>
+
+    <div id="global-timer" class="global-timer">
+      الوقت المتبقي لوصول جميع الحشود:
+      <span id="global-time-left">--:--</span>
+    </div>
+
+    <div id="open-alerts" class="open-alerts"></div>
+
+    <div class="timer-info">
+      <h3>معلومات نظام التوقيت:</h3>
+      <p>• وقت الانتظار لكل لاعب = (أطول مسيرة − مسيرته)</p>
+      <p id="max-march-info">أطول وقت مسيرة حاليًا: <strong>0</strong> ثانية</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th><th>اسم اللاعب</th><th>المسيرة</th>
+            <th>الانتظار</th><th>العدّاد</th><th>الحالة</th><th>حذف</th>
+          </tr>
+        </thead>
+        <tbody id="players-list"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
